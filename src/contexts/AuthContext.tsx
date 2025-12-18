@@ -35,7 +35,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       }
 
       try {
-        console.log('Verificando token guardado...');
+        // console.log('Verificando token guardado...');
 
         // Verificar el token con el servidor
         const userInfo = await authService.verifyToken();
@@ -50,7 +50,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         setCurrentMode(userInfo.role);
         setToken(savedToken);
 
-        console.log('Sesión restaurada exitosamente');
+        // console.log('Sesión restaurada exitosamente');
       } catch (error) {
         console.error('Error al verificar token:', error);
         // Si el token es inválido o ha expirado, limpiar la sesión
@@ -58,7 +58,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         setUser(null);
         setCurrentMode(null);
         setToken(null);
-        console.log('Sesión eliminada - Por favor inicie sesión nuevamente');
+        // console.log('Sesión eliminada - Por favor inicie sesión nuevamente');
       }
     };
 
@@ -68,7 +68,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   // Listener para manejar errores 401
   useEffect(() => {
     const handleAuthError = () => {
-      console.log('Error 401 detectado - Cerrando sesión');
+      // console.log('Error 401 detectado - Cerrando sesión');
       logout();
     };
 
@@ -89,11 +89,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       setToken(response.token);
 
       // Log del token para debug
-      console.log('=== JWT TOKEN GUARDADO ===');
-      console.log('Token:', response.token);
-      console.log('Guardado en localStorage con clave: authToken');
-      console.log('User Info:', response.user);
-      console.log('========================');
+      // console.log('=== JWT TOKEN GUARDADO ===');
+      // console.log('Token:', response.token);
+      // console.log('Guardado en localStorage con clave: authToken');
+      // console.log('User Info:', response.user);
+      // console.log('========================');
 
       // Establecer usuario
       if (response.user) {
@@ -119,10 +119,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const register = async (email: string, password: string, name: string, role: UserRole) => {
     try {
-      console.log('=== INICIANDO REGISTRO EN AUTH CONTEXT ===');
-      console.log('Email:', email);
-      console.log('Nombre:', name);
-      console.log('Rol:', role);
+      // console.log('=== INICIANDO REGISTRO EN AUTH CONTEXT ===');
+      // console.log('Email:', email);
+      // console.log('Nombre:', name);
+      // console.log('Rol:', role);
 
       // Llamar al servicio de registro real (API)
       const response = await authService.register(email, password, name, role);
@@ -131,11 +131,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       authService.saveToken(response.token);
       setToken(response.token);
 
-      console.log('=== JWT TOKEN GUARDADO DESPUÉS DEL REGISTRO ===');
-      console.log('Token:', response.token);
-      console.log('Guardado en localStorage con clave: authToken');
-      console.log('User Info:', response.user);
-      console.log('=============================================');
+      // console.log('=== JWT TOKEN GUARDADO DESPUÉS DEL REGISTRO ===');
+      // console.log('Token:', response.token);
+      // console.log('Guardado en localStorage con clave: authToken');
+      // console.log('User Info:', response.user);
+      // console.log('=============================================');
 
       // Establecer usuario
       if (response.user) {
@@ -146,7 +146,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       // Ocultar el formulario de registro
       setShowRegister(false);
 
-      console.log('✅ Registro completado exitosamente');
+      // console.log('✅ Registro completado exitosamente');
     } catch (error: any) {
       console.error('❌ Error en el registro:', error);
 
@@ -156,7 +156,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         throw error; // Re-lanzar el error si el email ya existe
       }
 
-      console.warn('API register failed, trying mock registration:', error);
+      // console.warn('API register failed, trying mock registration:', error);
 
       // Simulate network delay
       await new Promise(resolve => setTimeout(resolve, 800));

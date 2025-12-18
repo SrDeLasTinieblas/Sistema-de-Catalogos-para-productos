@@ -86,7 +86,7 @@ export function CatalogView({ catalogId, onBack }: CatalogViewProps) {
 
           // 2. Obtener productos del catálogo
           const productsData = await authService.getProducts(catalogId);
-          console.log('Productos CSV:', productsData);
+          // console.log('Productos CSV:', productsData);
 
           // Mapear productos al formato del componente
           const mappedProducts = productsData.map((prod: any) => ({
@@ -187,8 +187,8 @@ export function CatalogView({ catalogId, onBack }: CatalogViewProps) {
     try {
       // TODO: Este formulario usa URL de imagen, pero la API requiere base64
       // Se recomienda usar el componente UploadProduct en su lugar
-      console.log('ADVERTENCIA: Este formulario usa URL pero la API requiere imagen en base64');
-      console.log('Por favor, usa el componente UploadProduct para agregar productos con imágenes');
+      // console.log('ADVERTENCIA: Este formulario usa URL pero la API requiere imagen en base64');
+      // console.log('Por favor, usa el componente UploadProduct para agregar productos con imágenes');
 
       // Por ahora, agregamos el producto solo localmente
       const newProduct: Product = {

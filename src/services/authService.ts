@@ -67,13 +67,13 @@ export const authService = {
       // Formato: identificador|email|password|firstName|lastName
       const data = `${identificador}|${email}|${password}|${firstName}|${lastName}`;
 
-      console.log('=== REGISTRO DE USUARIO ===');
-      console.log('URL:', `${API_BASE_URL}/Auth/RegisterUsuario?data=${encodeURIComponent(data)}`);
-      console.log('Email:', email);
-      console.log('Nombre:', firstName);
-      console.log('Apellido:', lastName);
-      console.log('Rol asignado: Visitante (RoleID: 2 - asignado por el SP)');
-      console.log('==========================');
+      // console.log('=== REGISTRO DE USUARIO ===');
+      // console.log('URL:', `${API_BASE_URL}/Auth/RegisterUsuario?data=${encodeURIComponent(data)}`);
+      // console.log('Email:', email);
+      // console.log('Nombre:', firstName);
+      // console.log('Apellido:', lastName);
+      // console.log('Rol asignado: Visitante (RoleID: 2 - asignado por el SP)');
+      // console.log('==========================');
 
       const response = await fetch(
         `${API_BASE_URL}/Auth/RegisterUsuario?data=${encodeURIComponent(data)}`,
@@ -97,7 +97,7 @@ export const authService = {
       }
 
       const responseText = await response.text();
-      console.log('Respuesta del servidor:', responseText);
+      // console.log('Respuesta del servidor:', responseText);
 
       // La respuesta viene en formato: ¯A|Mensaje
       const parts = responseText.split('¯');
@@ -105,10 +105,10 @@ export const authService = {
         const messagePart = parts[1];
         if (messagePart.startsWith('A|')) {
           const message = messagePart.substring(2).trim();
-          console.log('✅', message);
+          // console.log('✅', message);
           
           // Si el registro fue exitoso, hacer login automático
-          console.log('Iniciando sesión automática...');
+          // console.log('Iniciando sesión automática...');
           const loginResponse = await this.login(email, password);
           
           return loginResponse;
@@ -203,11 +203,11 @@ export const authService = {
       // Formato: titulo|descripcion|categoria
       const data = `${title}|${description}|${category}`;
 
-      console.log('=== CREAR CATÁLOGO ===');
-      console.log('URL:', `${API_BASE_URL}/Catalogo/CreateCatalog?data=${encodeURIComponent(data)}`);
-      console.log('Data:', data);
-      console.log('Token:', token);
-      console.log('=====================');
+      // console.log('=== CREAR CATÁLOGO ===');
+      // console.log('URL:', `${API_BASE_URL}/Catalogo/CreateCatalog?data=${encodeURIComponent(data)}`);
+      // console.log('Data:', data);
+      // console.log('Token:', token);
+      // console.log('=====================');
 
       const response = await fetch(
         `${API_BASE_URL}/Catalogo/CreateCatalog?data=${encodeURIComponent(data)}`,
@@ -226,7 +226,7 @@ export const authService = {
       }
 
       const result = await response.json();
-      console.log('Respuesta del servidor:', result);
+      // console.log('Respuesta del servidor:', result);
       return result;
     } catch (error) {
       console.error('Error al crear catálogo:', error);
@@ -272,15 +272,15 @@ export const authService = {
       // id=0 para crear nuevo producto, estado=1 para activo
       const data = `0|${catalogId}|${name}|${description}|${price}|${normalizedImage}|1`;
 
-      console.log('=== CREAR PRODUCTO ===');
-      console.log('CatalogId:', catalogId);
-      console.log('Nombre:', name);
-      console.log('Descripción:', description);
-      console.log('Precio:', price);
-      console.log('Tipo de imagen:', normalizedImage.startsWith('data:') ? 'Base64' : 'URL HTTP');
-      console.log('Tamaño de imagen:', normalizedImage.length, 'caracteres');
-      console.log('Token presente:', !!token);
-      console.log('=====================');
+      // console.log('=== CREAR PRODUCTO ===');
+      // console.log('CatalogId:', catalogId);
+      // console.log('Nombre:', name);
+      // console.log('Descripción:', description);
+      // console.log('Precio:', price);
+      // console.log('Tipo de imagen:', normalizedImage.startsWith('data:') ? 'Base64' : 'URL HTTP');
+      // console.log('Tamaño de imagen:', normalizedImage.length, 'caracteres');
+      // console.log('Token presente:', !!token);
+      // console.log('=====================');
 
       const response = await fetch(
         `${API_BASE_URL}/Productos/CreateProductos?data=${encodeURIComponent(data)}`,
@@ -307,7 +307,7 @@ export const authService = {
       }
 
       const csvText = await response.text();
-      console.log('CSV recibido (primeros 500 chars):', csvText.substring(0, 500));
+      // console.log('CSV recibido (primeros 500 chars):', csvText.substring(0, 500));
 
       // Separar el mensaje de éxito de los datos
       const parts = csvText.split('¯');
@@ -322,7 +322,7 @@ export const authService = {
         }
       }
 
-      console.log('Mensaje:', message);
+      // console.log('Mensaje:', message);
       return { message };
     } catch (error) {
       console.error('Error al crear producto:', error);
@@ -359,13 +359,13 @@ export const authService = {
       const estado = isActive ? '1' : '0';
       const data = `${productId}|${catalogId}|${name}|${description}|${price}|${normalizedImage}|${estado}`;
 
-      console.log('=== ACTUALIZAR PRODUCTO ===');
-      console.log('ProductId:', productId);
-      console.log('CatalogId:', catalogId);
-      console.log('Nombre:', name);
-      console.log('Estado:', estado);
-      console.log('Tipo de imagen:', normalizedImage.startsWith('data:') ? 'Base64' : 'URL HTTP');
-      console.log('==========================');
+      // console.log('=== ACTUALIZAR PRODUCTO ===');
+      // console.log('ProductId:', productId);
+      // console.log('CatalogId:', catalogId);
+      // console.log('Nombre:', name);
+      // console.log('Estado:', estado);
+      // console.log('Tipo de imagen:', normalizedImage.startsWith('data:') ? 'Base64' : 'URL HTTP');
+      // console.log('==========================');
 
       const response = await fetch(
         `${API_BASE_URL}/Productos/CreateProductos?data=${encodeURIComponent(data)}`,
@@ -390,7 +390,7 @@ export const authService = {
       }
 
       const csvText = await response.text();
-      console.log('CSV recibido (primeros 500 chars):', csvText.substring(0, 500));
+      // console.log('CSV recibido (primeros 500 chars):', csvText.substring(0, 500));
 
       const parts = csvText.split('¯');
       let message = 'Producto actualizado exitosamente';
@@ -404,7 +404,7 @@ export const authService = {
         }
       }
 
-      console.log('Mensaje:', message);
+      // console.log('Mensaje:', message);
       return { message };
     } catch (error) {
       console.error('Error al actualizar producto:', error);
@@ -423,12 +423,12 @@ export const authService = {
       // Formato: productId|catalogId
       const data = `${productId}|${catalogId}`;
 
-      console.log('=== ELIMINAR PRODUCTO ===');
-      console.log('URL:', `${API_BASE_URL}/Productos/DeleteProductos?data=${encodeURIComponent(data)}`);
-      console.log('ProductId:', productId);
-      console.log('CatalogId:', catalogId);
-      console.log('Token:', token);
-      console.log('========================');
+      // console.log('=== ELIMINAR PRODUCTO ===');
+      // console.log('URL:', `${API_BASE_URL}/Productos/DeleteProductos?data=${encodeURIComponent(data)}`);
+      // console.log('ProductId:', productId);
+      // console.log('CatalogId:', catalogId);
+      // console.log('Token:', token);
+      // console.log('========================');
 
       const response = await fetch(
         `${API_BASE_URL}/Productos/DeleteProductos?data=${encodeURIComponent(data)}`,
@@ -454,13 +454,13 @@ export const authService = {
       }
 
       const csvText = await response.text();
-      console.log('CSV recibido:', csvText);
+      // console.log('CSV recibido:', csvText);
 
       // Separar el mensaje de éxito de los datos
       const parts = csvText.split('¯A');
       const message = parts.length > 1 ? parts[1].replace('|', '').trim() : 'Producto eliminado exitosamente';
 
-      console.log('Mensaje:', message);
+      // console.log('Mensaje:', message);
       return { message };
     } catch (error) {
       console.error('Error al eliminar producto:', error);
@@ -504,11 +504,11 @@ export const authService = {
         throw new Error('No hay token de autenticación');
       }
 
-      console.log('=== OBTENER CATÁLOGOS POR CATEGORÍA ===');
-      console.log('URL:', `${API_BASE_URL}/Catalogo/ObtenerCatalogos?data=${categoryId}`);
-      console.log('CategoryId:', categoryId);
-      console.log('Token:', token);
-      console.log('=======================================');
+      // console.log('=== OBTENER CATÁLOGOS POR CATEGORÍA ===');
+      // console.log('URL:', `${API_BASE_URL}/Catalogo/ObtenerCatalogos?data=${categoryId}`);
+      // console.log('CategoryId:', categoryId);
+      // console.log('Token:', token);
+      // console.log('=======================================');
 
       const response = await fetch(
         `${API_BASE_URL}/Catalogo/ObtenerCatalogos?data=${categoryId}`,
@@ -533,10 +533,10 @@ export const authService = {
       }
 
       const csvText = await response.text();
-      console.log('CSV recibido:', csvText);
+      // console.log('CSV recibido:', csvText);
 
       const catalogs = this.parseCsvResponse(csvText);
-      console.log('Catálogos parseados:', catalogs);
+      // console.log('Catálogos parseados:', catalogs);
 
       return catalogs;
     } catch (error) {
@@ -553,10 +553,10 @@ export const authService = {
         throw new Error('No hay token de autenticación');
       }
 
-      console.log('=== OBTENER CATEGORÍAS ===');
-      console.log('URL:', `${API_BASE_URL}/ObtenerCategorias?data=`);
-      console.log('Token:', token);
-      console.log('=========================');
+      // console.log('=== OBTENER CATEGORÍAS ===');
+      // console.log('URL:', `${API_BASE_URL}/ObtenerCategorias?data=`);
+      // console.log('Token:', token);
+      // console.log('=========================');
 
       const response = await fetch(
         `${API_BASE_URL}/Categoria/ObtenerCategorias`,
@@ -582,10 +582,10 @@ export const authService = {
       }
 
       const csvText = await response.text();
-      console.log('CSV recibido:', csvText);
+      // console.log('CSV recibido:', csvText);
 
       const categories = this.parseCsvResponse(csvText);
-      console.log('Categorías parseadas:', categories);
+      // console.log('Categorías parseadas:', categories);
 
       return categories;
     } catch (error) {
@@ -602,11 +602,11 @@ export const authService = {
         throw new Error('No hay token de autenticación');
       }
 
-      console.log('=== OBTENER PRODUCTOS ===');
-      console.log('URL:', `${API_BASE_URL}/Productos/ObtenerProductos?data=${catalogId}`);
-      console.log('CatalogId:', catalogId);
-      console.log('Token:', token);
-      console.log('========================');
+      // console.log('=== OBTENER PRODUCTOS ===');
+      // console.log('URL:', `${API_BASE_URL}/Productos/ObtenerProductos?data=${catalogId}`);
+      // console.log('CatalogId:', catalogId);
+      // console.log('Token:', token);
+      // console.log('========================');
 
       const response = await fetch(
         `${API_BASE_URL}/Productos/ObtenerProductos?data=${catalogId}`,
@@ -632,10 +632,10 @@ export const authService = {
       }
 
       const csvText = await response.text();
-      console.log('CSV recibido:', csvText);
+      // console.log('CSV recibido:', csvText);
 
       const products = this.parseCsvResponse(csvText);
-      console.log('Productos parseados:', products);
+      // console.log('Productos parseados:', products);
 
       return products;
     } catch (error) {
@@ -652,8 +652,8 @@ export const authService = {
         throw new Error('No hay token');
       }
 
-      console.log('=== VERIFICAR TOKEN AL INICIAR ===');
-      console.log('Token:', token);
+      // console.log('=== VERIFICAR TOKEN AL INICIAR ===');
+      // console.log('Token:', token);
 
       // Primero verificar si el token está expirado localmente
       if (!this.isTokenValid(token)) {
@@ -690,8 +690,8 @@ export const authService = {
         throw new Error('Error al verificar token');
       }
 
-      console.log('Token válido - Usuario autenticado:', userInfo);
-      console.log('==================================');
+      // console.log('Token válido - Usuario autenticado:', userInfo);
+      // console.log('==================================');
       return userInfo;
     } catch (error) {
       console.error('Error al verificar token:', error);
@@ -708,11 +708,11 @@ export const authService = {
         throw new Error('No hay token de autenticación');
       }
 
-      console.log('=== ELIMINAR CATÁLOGO ===');
-      console.log('URL:', `${API_BASE_URL}/Catalogo/DeleteCatalogos?data=${catalogId}`);
-      console.log('CatalogId:', catalogId);
-      console.log('Token:', token);
-      console.log('========================');
+      // console.log('=== ELIMINAR CATÁLOGO ===');
+      // console.log('URL:', `${API_BASE_URL}/Catalogo/DeleteCatalogos?data=${catalogId}`);
+      // console.log('CatalogId:', catalogId);
+      // console.log('Token:', token);
+      // console.log('========================');
 
       const response = await fetch(
         `${API_BASE_URL}/Catalogo/DeleteCatalogos?data=${catalogId}`,
@@ -738,7 +738,7 @@ export const authService = {
       }
 
       const csvText = await response.text();
-      console.log('CSV recibido:', csvText);
+      // console.log('CSV recibido:', csvText);
 
       // Separar el mensaje de éxito de los datos
       const parts = csvText.split('¯A');
@@ -746,8 +746,8 @@ export const authService = {
 
       // Parsear los catálogos actualizados
       const catalogs = this.parseCsvResponse(parts[0]);
-      console.log('Catálogos actualizados:', catalogs);
-      console.log('Mensaje:', message);
+      // console.log('Catálogos actualizados:', catalogs);
+      // console.log('Mensaje:', message);
 
       return { catalogs, message };
     } catch (error) {
@@ -768,15 +768,15 @@ export const authService = {
       const estadoActivo = isActive ? '1' : '0';
       const data = `${id}|${name}|${description}|${categoryId}|${estadoActivo}`;
 
-      console.log('=== CREAR/ACTUALIZAR CATÁLOGO ===');
-      console.log('URL:', `${API_BASE_URL}/Catalogo/CreateCatalogos?data=${encodeURIComponent(data)}`);
-      console.log('ID:', id);
-      console.log('Nombre:', name);
-      console.log('Descripción:', description);
-      console.log('CategoriaID:', categoryId);
-      console.log('Estado Activo:', estadoActivo);
-      console.log('Token:', token);
-      console.log('=================================');
+      // console.log('=== CREAR/ACTUALIZAR CATÁLOGO ===');
+      // console.log('URL:', `${API_BASE_URL}/Catalogo/CreateCatalogos?data=${encodeURIComponent(data)}`);
+      // console.log('ID:', id);
+      // console.log('Nombre:', name);
+      // console.log('Descripción:', description);
+      // console.log('CategoriaID:', categoryId);
+      // console.log('Estado Activo:', estadoActivo);
+      // console.log('Token:', token);
+      // console.log('=================================');
 
       const response = await fetch(
         `${API_BASE_URL}/Catalogo/CreateCatalogos?data=${encodeURIComponent(data)}`,
@@ -802,7 +802,7 @@ export const authService = {
       }
 
       const csvText = await response.text();
-      console.log('CSV recibido:', csvText);
+      // console.log('CSV recibido:', csvText);
 
       // Separar el mensaje de éxito de los datos
       const parts = csvText.split('¯A');
@@ -810,8 +810,8 @@ export const authService = {
 
       // Parsear los catálogos actualizados
       const catalogs = this.parseCsvResponse(parts[0]);
-      console.log('Catálogos actualizados:', catalogs);
-      console.log('Mensaje:', message);
+      // console.log('Catálogos actualizados:', catalogs);
+      // console.log('Mensaje:', message);
 
       return { catalogs, message };
     } catch (error) {

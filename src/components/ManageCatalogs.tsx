@@ -32,7 +32,7 @@ export function ManageCatalogs({ onViewCatalog, onCreateCatalog }: ManageCatalog
 
         // 1. Obtener todas las categorías
         const categoriesData = await authService.getCategories();
-        console.log('Categorías obtenidas:', categoriesData);
+        // console.log('Categorías obtenidas:', categoriesData);
 
         // Guardar categorías para el select de edición
         const mappedCategories = categoriesData.map((cat: any) => ({
@@ -62,7 +62,7 @@ export function ManageCatalogs({ onViewCatalog, onCreateCatalog }: ManageCatalog
           });
         }
 
-        console.log('Todos los catálogos cargados:', allCatalogs);
+        // console.log('Todos los catálogos cargados:', allCatalogs);
         setCatalogCategoryMap(categoryMap);
 
         // 3. Mapear los datos del servidor al formato del componente
@@ -113,7 +113,7 @@ export function ManageCatalogs({ onViewCatalog, onCreateCatalog }: ManageCatalog
         categoryId
       );
 
-      console.log('Catálogo actualizado:', result.message);
+      // console.log('Catálogo actualizado:', result.message);
 
       // Recargar catálogos para obtener la lista actualizada
       const categoriesData = await authService.getCategories();
@@ -176,7 +176,7 @@ export function ManageCatalogs({ onViewCatalog, onCreateCatalog }: ManageCatalog
         newIsActive
       );
 
-      console.log(`Catálogo ${newIsActive ? 'activado' : 'desactivado'} exitosamente`);
+      // console.log(`Catálogo ${newIsActive ? 'activado' : 'desactivado'} exitosamente`);
 
       // Recargar catálogos para obtener la lista actualizada
       const categoriesData = await authService.getCategories();

@@ -48,7 +48,7 @@ export function CatalogList({ onViewCatalog }: CatalogListProps) {
 
         // 1. Obtener todas las categorías
         const categoriesData = await authService.getCategories();
-        console.log('Categorías obtenidas:', categoriesData);
+        // console.log('Categorías obtenidas:', categoriesData);
         setCategories(categoriesData);
 
         // 2. Obtener catálogos de cada categoría
@@ -70,7 +70,7 @@ export function CatalogList({ onViewCatalog }: CatalogListProps) {
           }
         }
 
-        console.log('Catálogos obtenidos:', allCatalogs);
+        // console.log('Catálogos obtenidos:', allCatalogs);
 
         // 3. Mapear al formato del componente
         const mappedCatalogs = allCatalogs.map((cat: any) => ({
