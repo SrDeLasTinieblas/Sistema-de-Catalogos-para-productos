@@ -1,7 +1,7 @@
 import { User, UserRole } from '../types';
 
 // Usar variable de entorno o fallback a ngrok si no está configurada
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+const API_BASE_URL = "https://sistemacatalogos.somee.com/api";
 
 // Evento para notificar cuando hay un error 401
 export const AUTH_ERROR_EVENT = 'auth_error_401';
