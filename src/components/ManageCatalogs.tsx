@@ -277,13 +277,13 @@ export function ManageCatalogs({ onViewCatalog, onCreateCatalog }: ManageCatalog
               Administra todos tus catálogos desde un solo lugar
             </p>
           </div>
-          <button
+          {/* <button
             onClick={onCreateCatalog}
             className="flex items-center gap-2 px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition shadow-sm"
           >
             <Plus className="w-5 h-5" />
             Crear Catálogo
-          </button>
+          </button> */}
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">

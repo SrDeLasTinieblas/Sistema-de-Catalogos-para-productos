@@ -1,6 +1,7 @@
 import { User, UserRole } from '../types';
 
-const API_BASE_URL = 'https://d0148d48c0c5.ngrok-free.app/api';
+// Usar variable de entorno o fallback a ngrok si no está configurada
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 // Evento para notificar cuando hay un error 401
 export const AUTH_ERROR_EVENT = 'auth_error_401';

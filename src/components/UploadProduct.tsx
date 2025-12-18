@@ -338,7 +338,7 @@ export function UploadProduct({ catalogId: initialCatalogId, onSuccess, onCancel
                         Haz clic para subir o arrastra una imagen
                       </p>
                       <p className="text-gray-500 text-sm">
-                        PNG, JPG, JPEG o WEBP (máx. 5MB)
+                        PNG, JPG, JPEG o WEBP (máx. 10MB)
                       </p>
                     </>
                   )}
