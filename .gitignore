@@ -1,0 +1,39 @@
+# Dependencias
+node_modules/
+
+# Build
+build/
+dist/
+dist-ssr/
+    
+# Environment
+.env*
+!.env.example
+
+# Logs
+*.log
+logs/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Cache
+.cache/
+.vite/
+.turbo/
+*.tsbuildinfo
+
+# Testing
+coverage/
+.nyc_output/
+
+# Misc
+*.local
+.pnpm-debug.log*
